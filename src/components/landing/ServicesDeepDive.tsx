@@ -42,7 +42,7 @@ const tabs = [
     ],
   },
   {
-    name: "Juniors",
+    name: "K12 (juniors)",
     color: "#f59e0b",
     glow: "rgba(245,158,11,0.12)",
     offerings: ["Scratch Programming", "Python Basics", "Web Development", "Robotics", "App Development", "Teacher Training"],

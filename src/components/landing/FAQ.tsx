@@ -6,7 +6,7 @@ const questions = [
   { q: "How long before I see results from Digital Marketing?", a: "Paid channels deliver leads within 2-4 weeks. SEO shows meaningful movement in 3-6 months. We set realistic timelines upfront and report weekly." },
   { q: "What is the placement support process for students?", a: "Students go through resume building, mock interviews, soft skills training, and are connected with our network of 120+ hiring partners. We support until placed." },
   { q: "Can DataQuotes build custom software for my business?", a: "Yes. Our IT Services vertical handles everything from MVPs to enterprise platforms — web, mobile, cloud migration, and system integration." },
-  { q: "How do Juniors programs integrate with school curricula?", a: "We map our coding and robotics modules to CBSE/ICSE/State board frameworks, ensuring they complement rather than compete with existing subjects." },
+  { q: "How do K12 (juniors) programs integrate with school curricula?", a: "We map our coding and robotics modules to CBSE/ICSE/State board frameworks, ensuring they complement rather than compete with existing subjects." },
   { q: "Who owns the deliverables?", a: "You do. All code, content, designs, and data belong to you from day one. We believe in transparent, ownership-first partnerships." },
   { q: "Can I work with multiple verticals simultaneously?", a: "Absolutely. That's our core strength. Many clients engage 2-3 verticals at once — for example, Digital Marketing + IT Services for a complete digital transformation." },
   { q: "What ongoing support is available post-launch?", a: "We offer retainer plans for marketing, AMC for software, and ongoing training partnerships. Every engagement includes 30 days of post-delivery support at no extra cost." },

@@ -18,7 +18,7 @@ export default function Footer() {
           <div>
             <p className="font-sans font-semibold text-sm text-foreground mb-4">Verticals</p>
             <div className="space-y-2.5">
-              {["Digital Marketing", "Edutech", "IT Services", "Juniors"].map((v) => (
+              {["Digital Marketing", "Edutech", "IT Services", "K12 (juniors)"].map((v) => (
                 <a
                   key={v}
                   href="#verticals"
@@ -50,9 +50,9 @@ export default function Footer() {
           <div>
             <p className="font-sans font-semibold text-sm text-foreground mb-4">Contact</p>
             <div className="space-y-2.5 font-sans text-sm text-muted-foreground">
-              <p>hello@dataquotes.com</p>
-              <p>+91 98765 43210</p>
-              <p>Bangalore, India</p>
+              <p>hello@dataquotes.net</p>
+              <p>+91 87901 34917</p>
+              <p>3rd Floor, 14-40A, Vaikuntapuram Arch Rd, Dhanalakshmi Nagar, Vk Puram, Tirupati, Andhra Pradesh 517502</p>
               <a href="#contact" className="text-primary hover:underline font-medium block mt-3">
                 Book a Call →
               </a>

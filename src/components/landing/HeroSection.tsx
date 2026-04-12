@@ -23,7 +23,7 @@ const verticals = [
     glow: "rgba(129, 140, 248, 0.18)",
   },
   {
-    name: "Juniors",
+    name: "K12 (juniors)",
     tagline: "Building digital foundations for the next generation",
     chips: ["Coding", "Robotics", "Teacher Training"],
     color: "#f59e0b",

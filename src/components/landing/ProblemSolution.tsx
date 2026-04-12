@@ -14,7 +14,7 @@ const solutions = [
   { name: "Digital Marketing", color: "#3b82f6", desc: "Predictable lead generation through integrated digital channels." },
   { name: "Edutech", color: "#10b981", desc: "Industry-ready training with guaranteed placement pathways." },
   { name: "IT Services", color: "#818cf8", desc: "End-to-end technology strategy, build, and maintenance." },
-  { name: "Juniors", color: "#f59e0b", desc: "Structured coding & robotics programs for K-12 students." },
+  { name: "K12 (juniors)", color: "#f59e0b", desc: "Structured coding & robotics programs for K-12 students." },
 ];
 
 export default function ProblemSolution() {

@@ -4,6 +4,7 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 const verticals = [
   {
     name: "Digital Marketing",
+    href: "https://digital.dataquotes.net/",
     color: "#3b82f6",
     glow: "rgba(59,130,246,0.12)",
     problem: "Losing leads to competitors with better digital presence",
@@ -12,6 +13,7 @@ const verticals = [
   },
   {
     name: "Edutech",
+    href: "https://edutech.dataquotes.net/",
     color: "#10b981",
     glow: "rgba(16,185,129,0.12)",
     problem: "Skilled in theory, invisible to employers",
@@ -20,6 +22,7 @@ const verticals = [
   },
   {
     name: "IT Services",
+    href: "https://it.dataquotes.net/",
     color: "#818cf8",
     glow: "rgba(129,140,248,0.12)",
     problem: "No clear technology roadmap or internal systems",
@@ -27,7 +30,8 @@ const verticals = [
     summary: "From MVP to enterprise architecture, we build technology that scales. Our audits identify gaps, and our engineering teams close them.",
   },
   {
-    name: "Juniors",
+    name: "K12 (juniors)",
+    href: "https://k12.dataquotes.net/",
     color: "#f59e0b",
     glow: "rgba(245,158,11,0.12)",
     problem: "Schools need structured coding programs for kids",
@@ -107,7 +111,7 @@ export default function VerticalsSection() {
                   {v.summary}
                 </p>
                 <a
-                  href="#solutions"
+                  href={v.href}
                   className="font-sans text-xs font-semibold text-primary hover:underline inline-flex items-center gap-1"
                 >
                   View Details
@@ -123,13 +127,20 @@ export default function VerticalsSection() {
           {verticals.map((v, i) => {
             const isOpen = activeIdx === i;
             return (
-              <button
+              <div
                 key={v.name}
-                type="button"
                 onClick={() => setActiveIdx(isOpen ? null : i)}
-                className="w-full text-left relative overflow-hidden rounded-2xl bg-card border border-border p-4 transition-all duration-300"
+                className="w-full text-left relative overflow-hidden rounded-2xl bg-card border border-border p-4 transition-all duration-300 cursor-pointer"
                 style={{
                   boxShadow: isOpen ? `0 18px 45px -26px ${v.glow}` : "none",
+                }}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    setActiveIdx(isOpen ? null : i);
+                  }
                 }}
               >
                 <div
@@ -179,7 +190,8 @@ export default function VerticalsSection() {
                       {v.summary}
                     </p>
                     <a
-                      href="#solutions"
+                      href={v.href}
+                      onClick={(e) => e.stopPropagation()}
                       className="font-sans text-xs font-semibold text-primary hover:underline inline-flex items-center gap-1"
                     >
                       View Details
@@ -187,7 +199,7 @@ export default function VerticalsSection() {
                     </a>
                   </div>
                 )}
-              </button>
+              </div>
             );
           })}
         </div>

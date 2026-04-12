@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { useToast } from "@/hooks/use-toast";
 
 const categories = [
   { label: "Business Owner", icon: "🏢" },
@@ -8,6 +9,7 @@ const categories = [
 ];
 
 export default function ContactForm() {
+  const { toast } = useToast();
   const [step, setStep] = useState(1);
   const [form, setForm] = useState({
     name: "", phone: "", email: "",
@@ -25,6 +27,23 @@ export default function ContactForm() {
   };
 
   const charCount = form.message.length;
+  const GOOGLE_FORM_URL = "https://forms.gle/8uudYEpqanpjnVKN9";
+
+  const handleFinalSubmit = () => {
+    if (!form.name.trim() || !form.email.trim() || !form.category || charCount < 20) {
+      toast({
+        title: "Submission failed",
+        description: "Please complete all required details.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    toast({
+      title: "Details captured",
+      description: "Thanks! Our team will contact you within 24 hours.",
+    });
+  };
 
   return (
     <section
@@ -186,6 +205,7 @@ export default function ContactForm() {
           ) : (
             <button
               disabled={charCount < 20}
+              onClick={handleFinalSubmit}
               className="flex-1 font-sans text-sm font-semibold bg-primary text-primary-foreground px-6 py-3 rounded-lg hover:opacity-90 transition-opacity disabled:opacity-40"
             >
               Start the Conversation →
@@ -198,6 +218,14 @@ export default function ContactForm() {
           <p className="font-sans text-xs text-muted-foreground/70">
             We respond within 2 hours. No spam. No sales pressure.
           </p>
+          <a
+            href={GOOGLE_FORM_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block font-sans text-xs text-primary hover:underline"
+          >
+            Prefer direct form? Fill Google Form
+          </a>
           <div className="flex justify-center gap-4 sm:gap-6 flex-wrap">
             {["Verified Partners", "NDA-Friendly", "Free First Call"].map((badge) => (
               <span
