@@ -9,7 +9,7 @@ export default function WhoThisIsFor() {
   const sectionRef = useScrollAnimation();
 
   return (
-    <section id="about" className="py-20 md:py-[120px]">
+    <section id="about" className="py-12 md:py-20">
       <div className="section-animate max-w-[1400px] mx-auto px-4 sm:px-6" ref={sectionRef}>
         <h2 className="text-3xl md:text-[48px] md:leading-[1.15] text-foreground mb-4 stagger-child">
           Built for people who move.
