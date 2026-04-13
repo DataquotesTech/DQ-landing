@@ -1,10 +1,9 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
-import TopAnnouncementBar from "./TopAnnouncementBar";
+/* import TopAnnouncementBar from "./TopAnnouncementBar"; */
 
 const navItems = [
   { label: "Home", href: "#home" },
-  { label: "Verticals", href: "#verticals" },
   { label: "Solutions", href: "#solutions" },
   { label: "Case Studies", href: "#case-studies" },
   { label: "About", href: "#about" },
@@ -45,7 +44,7 @@ export default function Navbar() {
 
   return (
     <header className="fixed left-0 right-0 z-50">
-      <TopAnnouncementBar />
+      {/* <TopAnnouncementBar /> */}
       <nav
         className={`${scrolled ? "navbar-solid" : "navbar-transparent"}`}
         style={{ marginTop: 0 }}

@@ -5,6 +5,7 @@ const verticals = [
     name: "Digital Marketing",
     tagline: "Engineered lead generation at scale",
     chips: ["Lead Gen", "SEO", "Social Ads"],
+    href: "https://digital.dataquotes.net/",
     color: "#3b82f6",
     glow: "rgba(59, 130, 246, 0.18)",
   },
@@ -12,6 +13,7 @@ const verticals = [
     name: "Edutech",
     tagline: "Career-ready graduates, not just certificates",
     chips: ["Certifications", "Live Projects", "Placement"],
+    href: "https://edutech.dataquotes.net/",
     color: "#10b981",
     glow: "rgba(16, 185, 129, 0.18)",
   },
@@ -19,6 +21,7 @@ const verticals = [
     name: "IT Services",
     tagline: "Technology that scales with your ambition",
     chips: ["Web & App", "Integration", "Tech Audits"],
+    href: "https://it.dataquotes.net/",
     color: "#818cf8",
     glow: "rgba(129, 140, 248, 0.18)",
   },
@@ -26,6 +29,7 @@ const verticals = [
     name: "K12 (juniors)",
     tagline: "Building digital foundations for the next generation",
     chips: ["Coding", "Robotics", "Teacher Training"],
+    href: "https://k12.dataquotes.net/",
     color: "#f59e0b",
     glow: "rgba(245, 158, 11, 0.18)",
   },
@@ -153,6 +157,8 @@ export default function HeroSection() {
             </a>
             <a
               href="#verticals"
+              target="_blank"
+              rel="noreferrer"
               className="font-sans text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1"
             >
               Explore Verticals
@@ -186,8 +192,11 @@ export default function HeroSection() {
             const height = hasHover ? (isHovered ? "55%" : "15%") : "25%";
 
             return (
-              <div
+              <a
                 key={v.name}
+                href={v.href}
+                target="_blank"
+                rel="noreferrer"
                 onMouseEnter={() => setHoveredIdx(i)}
                 onMouseLeave={() => setHoveredIdx(null)}
                 className="glass-card px-5 flex flex-col justify-center overflow-hidden cursor-pointer rounded-lg"
@@ -223,16 +232,15 @@ export default function HeroSection() {
                         </span>
                       ))}
                     </div>
-                    <a
-                      href="#verticals"
+                    <span
                       className="font-sans text-xs font-medium hover:underline inline-block"
                       style={{ color: v.color }}
                     >
                       View Details →
-                    </a>
+                    </span>
                   </div>
                 )}
-              </div>
+              </a>
             );
           })}
         </div>
@@ -240,9 +248,12 @@ export default function HeroSection() {
         {/* Mobile verticals — 2×2 grid */}
         <div className="lg:hidden grid grid-cols-2 gap-3">
           {verticals.map((v) => (
-            <div
+            <a
               key={v.name}
-              className="glass-card p-4 rounded-lg"
+              href={v.href}
+              target="_blank"
+              rel="noreferrer"
+              className="glass-card p-4 rounded-lg block"
               style={{ borderLeftWidth: "3px", borderLeftColor: v.color }}
             >
               <div className="flex items-center gap-2 mb-1">
@@ -250,7 +261,7 @@ export default function HeroSection() {
                 <p className="font-sans font-semibold text-sm text-foreground">{v.name}</p>
               </div>
               <p className="font-sans text-xs text-muted-foreground leading-relaxed">{v.tagline}</p>
-            </div>
+            </a>
           ))}
         </div>
       </div>
