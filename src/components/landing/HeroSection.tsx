@@ -143,7 +143,7 @@ export default function HeroSection() {
             className="font-sans text-sm sm:text-lg text-muted-foreground max-w-xl mb-8 sm:mb-10 leading-relaxed hero-fade-up"
             style={{ animationDelay: "700ms" }}
           >
-            Digital Marketing. Technology. Training. Delivered as one integrated ecosystem — not four agencies.
+            Helping businesses scale with digital and IT services, guiding students into tech careers through industry training, and inspiring kids with future-ready technology education.
           </p>
           <div
             className="flex flex-wrap items-center gap-3 sm:gap-4 hero-fade-up"
