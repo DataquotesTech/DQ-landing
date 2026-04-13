@@ -4,6 +4,32 @@ import { useToast } from "@/hooks/use-toast";
 
 const verticalOptions = ["Digital", "EduTech", "IT Services", "K12 (juniors)"];
 
+const GOOGLE_FORM_ACTION_URL = import.meta.env.VITE_GOOGLE_FORM_ACTION_URL?.trim() || "";
+const GOOGLE_FORM_VERTICAL_FALLBACK = import.meta.env.VITE_GOOGLE_FORM_VERTICAL_FALLBACK?.trim() || "IT";
+const GOOGLE_FORM_PUBLIC_URL = import.meta.env.VITE_GOOGLE_FORM_PUBLIC_URL?.trim() || "https://forms.gle/eKxZZSUHnsXa8dvA7";
+
+const GOOGLE_FORM_FIELDS = {
+  name: import.meta.env.VITE_GOOGLE_FORM_ENTRY_NAME?.trim() || "",
+  phone: import.meta.env.VITE_GOOGLE_FORM_ENTRY_PHONE?.trim() || "",
+  email: import.meta.env.VITE_GOOGLE_FORM_ENTRY_EMAIL?.trim() || "",
+  businessName: import.meta.env.VITE_GOOGLE_FORM_ENTRY_BUSINESS?.trim() || "",
+  message: import.meta.env.VITE_GOOGLE_FORM_ENTRY_MESSAGE?.trim() || "",
+  vertical: import.meta.env.VITE_GOOGLE_FORM_ENTRY_VERTICAL?.trim() || "",
+};
+
+const normalizeVerticalValue = (value: string) => {
+  const normalized = value.trim().toLowerCase();
+
+  if (!normalized || normalized === "general" || normalized === "business") return "IT";
+  if (normalized === "techglobal" || normalized === "it" || normalized === "it services") return "IT";
+  if (normalized === "k12" || normalized === "k12 (juniors)" || normalized === "juniors") return "juniors";
+  if (normalized === "edutech") return "edutech";
+  if (normalized === "digital" || normalized === "digital marketing") return "digital";
+  if (normalized === "landing") return "landing";
+
+  return "IT";
+};
+
 export default function ContactForm() {
   const { toast } = useToast();
   const [form, setForm] = useState({
@@ -14,12 +40,36 @@ export default function ContactForm() {
     message: "",
     vertical: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
   const sectionRef = useScrollAnimation();
-  const GOOGLE_FORM_URL = "https://forms.gle/eKxZZSUHnsXa8dvA7";
 
-  const update = (field: string, value: string) => setForm({ ...form, [field]: value });
+  const update = (field: string, value: string) => {
+    if (submitError) {
+      setSubmitError("");
+    }
+    setForm({ ...form, [field]: value });
+  };
 
-  const handleFinalSubmit = () => {
+  const buildGoogleFormPayload = () => {
+    const payload = new URLSearchParams();
+    const normalizedVertical = normalizeVerticalValue(
+      form.vertical || GOOGLE_FORM_VERTICAL_FALLBACK
+    );
+
+    if (GOOGLE_FORM_FIELDS.name) payload.append(GOOGLE_FORM_FIELDS.name, form.name.trim());
+    if (GOOGLE_FORM_FIELDS.phone) payload.append(GOOGLE_FORM_FIELDS.phone, form.phone.trim());
+    if (GOOGLE_FORM_FIELDS.email) payload.append(GOOGLE_FORM_FIELDS.email, form.email.trim());
+    if (GOOGLE_FORM_FIELDS.businessName) payload.append(GOOGLE_FORM_FIELDS.businessName, form.businessName.trim());
+    if (GOOGLE_FORM_FIELDS.message) payload.append(GOOGLE_FORM_FIELDS.message, form.message.trim());
+    if (GOOGLE_FORM_FIELDS.vertical) payload.append(GOOGLE_FORM_FIELDS.vertical, normalizedVertical);
+
+    return payload;
+  };
+
+  const handleFinalSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
     if (
       !form.name.trim() ||
       !form.phone.trim() ||
@@ -28,6 +78,7 @@ export default function ContactForm() {
       !form.message.trim() ||
       !form.vertical
     ) {
+      setSubmitError("Please fill all required fields before submitting.");
       toast({
         title: "Submission failed",
         description: "Please fill all required fields before submitting.",
@@ -36,19 +87,52 @@ export default function ContactForm() {
       return;
     }
 
-    toast({
-      title: "Details captured",
-      description: "Thanks. Please complete the final Google Form submission if needed.",
-    });
+    if (!GOOGLE_FORM_ACTION_URL) {
+      setSubmitError("Google Form is not configured yet. Please use direct form link.");
+      toast({
+        title: "Form config missing",
+        description: "Use the direct Google Form link below.",
+        variant: "destructive",
+      });
+      return;
+    }
 
-    setForm({
-      name: "",
-      phone: "",
-      email: "",
-      businessName: "",
-      message: "",
-      vertical: "",
-    });
+    try {
+      setIsSubmitting(true);
+      setSubmitError("");
+
+      await fetch(GOOGLE_FORM_ACTION_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+        },
+        body: buildGoogleFormPayload().toString(),
+      });
+
+      toast({
+        title: "Submitted successfully",
+        description: "Our team will contact you shortly.",
+      });
+
+      setForm({
+        name: "",
+        phone: "",
+        email: "",
+        businessName: "",
+        message: "",
+        vertical: "",
+      });
+    } catch {
+      setSubmitError("Submission failed. Please try again or use Google Form link.");
+      toast({
+        title: "Submission failed",
+        description: "Please retry or use the Google Form link.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -64,7 +148,7 @@ export default function ContactForm() {
           Share the essentials and our team will connect with the right vertical.
         </p>
 
-        <div className="glass-card rounded-2xl border border-white/10 p-5 sm:p-7 space-y-4 stagger-child">
+        <form onSubmit={handleFinalSubmit} className="glass-card rounded-2xl border border-white/10 p-5 sm:p-7 space-y-4 stagger-child">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground/60 mb-1 block">
@@ -158,13 +242,14 @@ export default function ContactForm() {
 
           <div className="flex flex-col sm:flex-row gap-3 pt-2">
             <button
-              onClick={handleFinalSubmit}
+              type="submit"
+              disabled={isSubmitting}
               className="flex-1 font-sans text-sm font-semibold bg-primary text-primary-foreground px-6 py-3 rounded-lg hover:opacity-90 transition-opacity disabled:opacity-40"
             >
-              Send Details
+              {isSubmitting ? "Submitting..." : "Send Details"}
             </button>
             <a
-              href={GOOGLE_FORM_URL}
+              href={GOOGLE_FORM_PUBLIC_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="flex-1 font-sans text-sm font-semibold border rounded-lg px-6 py-3 text-center text-muted-foreground hover:text-foreground hover:bg-white/5 transition-all"
@@ -173,7 +258,8 @@ export default function ContactForm() {
               Open Google Form
             </a>
           </div>
-        </div>
+          {submitError && <p className="font-sans text-xs text-red-400">{submitError}</p>}
+        </form>
 
         <div className="mt-8 text-center space-y-3 stagger-child">
           <p className="font-sans text-xs text-muted-foreground/70">
