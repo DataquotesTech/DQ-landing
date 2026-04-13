@@ -2,14 +2,6 @@ import { useState, useRef, useEffect } from "react";
 
 const verticals = [
   {
-    name: "Digital Marketing",
-    tagline: "Engineered lead generation at scale",
-    chips: ["Lead Gen", "SEO", "Social Ads"],
-    href: "https://digital.dataquotes.net/",
-    color: "#3b82f6",
-    glow: "rgba(59, 130, 246, 0.18)",
-  },
-  {
     name: "Edutech",
     tagline: "Career-ready graduates, not just certificates",
     chips: ["Certifications", "Live Projects", "Placement"],
@@ -33,13 +25,21 @@ const verticals = [
     color: "#f59e0b",
     glow: "rgba(245, 158, 11, 0.18)",
   },
+  {
+    name: "Digital Marketing",
+    tagline: "Engineered lead generation at scale",
+    chips: ["Lead Gen", "SEO", "Social Ads"],
+    href: "https://digital.dataquotes.net/",
+    color: "#3b82f6",
+    glow: "rgba(59, 130, 246, 0.18)",
+  }
 ];
 
 const floatingChips = [
-  { label: "SEO", x: "8%",  delay: "0s",    duration: "6s" },
+  { label: "SEO", x: "8%", delay: "0s", duration: "6s" },
   { label: "Scale", x: "18%", delay: "1.2s", duration: "7.5s" },
-  { label: "Data", x: "30%", delay: "0.4s",  duration: "5.5s" },
-  { label: "AI", x: "55%",  delay: "2s",    duration: "8s" },
+  { label: "Data", x: "30%", delay: "0.4s", duration: "5.5s" },
+  { label: "AI", x: "55%", delay: "2s", duration: "8s" },
   { label: "Growth", x: "70%", delay: "0.8s", duration: "6.5s" },
   { label: "Leads", x: "82%", delay: "1.6s", duration: "7s" },
   { label: "Placements", x: "92%", delay: "0.3s", duration: "5s" },
@@ -155,7 +155,7 @@ export default function HeroSection() {
             >
               Get Free Consultation
             </a>
-           {/*  <a
+            {/*  <a
               href="#verticals"
               target="_blank"
               rel="noreferrer"

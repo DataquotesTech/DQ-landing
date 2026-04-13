@@ -24,7 +24,7 @@ const normalizeVerticalValue = (value: string) => {
   if (normalized === "techglobal" || normalized === "it" || normalized === "it services") return "IT";
   if (normalized === "k12" || normalized === "k12 (juniors)" || normalized === "juniors") return "juniors";
   if (normalized === "edutech") return "edutech";
-  if (normalized === "digital" || normalized === "digital marketing") return "digital";
+  if (normalized === "digital marketing" || normalized === "digital marketing") return "digital marketing";
   if (normalized === "landing") return "landing";
 
   return "IT";
