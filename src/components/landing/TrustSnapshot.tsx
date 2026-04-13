@@ -2,17 +2,17 @@ import { useCountUp } from "@/hooks/useCountUp";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const stats = [
-  { value: 500, suffix: "+", label: "Businesses Scaled" },
-  { value: 10000, suffix: "+", label: "Learners Trained" },
-  { value: 95, suffix: "%", label: "Placement Rate" },
-  { value: 48, suffix: "hrs", label: "Delivery Start" },
-  { value: 12, suffix: "+", label: "Partner Institutes" },
-  { value: 200, suffix: "+", label: "Projects Delivered" },
+  { value: 10, suffix: "+", label: "Businesses Scaled" },
+  { value: 1000, suffix: "+", label: "Learners Trained" },
+  { value: 83, suffix: "%", label: "Placement Rate" },
+  { value: 72, suffix: "hrs", label: "Delivery Start" },
+  { value: 3, suffix: "+", label: "Partner Institutes" },
+  { value: 10, suffix: "+", label: "Projects Delivered" },
 ];
 
 const partners = [
-  "TechCorp", "EduFirst", "ScaleUp", "CodeBase", "DataDriven",
-  "GrowthLab", "DigitalEdge", "SmartPath", "InnoTech", "FutureSkills",
+  "SMPR Realty", "Royal Furn", "FMCG Influencers", "Sri Maruthi Hospitals", "Mithra Clinic",
+  "Naveen Dentals", "Santosh Academy", "MateriGO", "BloomBites", "Insentisights",
 ];
 
 function StatBlock({ value, suffix, label }: { value: number; suffix: string; label: string }) {

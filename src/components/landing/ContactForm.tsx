@@ -54,7 +54,7 @@ export default function ContactForm() {
   return (
     <section
       id="contact"
-      className="py-20 md:py-[120px] scroll-mt-32 md:scroll-mt-40"
+      className="py-12 md:py-20 scroll-mt-32 md:scroll-mt-40"
     >
       <div className="section-animate max-w-[560px] mx-auto px-4 sm:px-6" ref={sectionRef}>
         <h2 className="text-3xl md:text-[48px] md:leading-[1.15] text-foreground mb-3 text-center stagger-child">

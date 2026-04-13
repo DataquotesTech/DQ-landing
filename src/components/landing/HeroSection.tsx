@@ -155,7 +155,7 @@ export default function HeroSection() {
             >
               Get Free Consultation
             </a>
-            <a
+           {/*  <a
               href="#verticals"
               target="_blank"
               rel="noreferrer"
@@ -163,7 +163,7 @@ export default function HeroSection() {
             >
               Explore Verticals
               <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
-            </a>
+            </a> */}
           </div>
 
           {/* Quick stats row */}
@@ -172,9 +172,9 @@ export default function HeroSection() {
             style={{ animationDelay: "1100ms" }}
           >
             {[
-              { val: "500+", label: "Businesses" },
-              { val: "10K+", label: "Learners" },
-              { val: "95%", label: "Placement Rate" },
+              { val: "10+", label: "Businesses" },
+              { val: "1K+", label: "Learners" },
+              { val: "83%", label: "Placement Rate" },
             ].map((s) => (
               <div key={s.label}>
                 <p className="font-sans font-bold text-xl text-foreground">{s.val}</p>
