@@ -22,7 +22,7 @@ const cases = [
     fullStory: "This tier-2 engineering college struggled with low placement rates and poor industry perception. We embedded a 6-month upskilling program featuring industry certifications, live client projects, and intensive interview preparation. The result: 94% placement rate with a 40% increase in average package, plus three new corporate hiring partnerships.",
   },
   {
-    tag: "IT Services", color: "#818cf8",
+    tag: "TechGlobal (IT Services)", color: "#818cf8",
     client: "Healthcare Startup",
     challenge: "Legacy PHP system crashing under 10K daily users, no mobile presence.",
     intervention: "Rebuilt on React + Node.js microservices, launched React Native app.",
@@ -37,7 +37,7 @@ export default function CaseStudies() {
   const sectionRef = useScrollAnimation();
 
   return (
-    <section id="case-studies" className="py-20 md:py-[120px] bg-surface">
+    <section id="case-studies" className="py-20 md:py-[10px] bg-surface">
       <div className="section-animate max-w-[1400px] mx-auto px-4 sm:px-6" ref={sectionRef}>
         <h2 className="text-3xl md:text-[48px] md:leading-[1.15] text-foreground mb-4 stagger-child">
           Outcomes, not outputs.

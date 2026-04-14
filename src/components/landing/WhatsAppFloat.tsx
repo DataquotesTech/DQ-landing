@@ -2,7 +2,6 @@ import { MessageCircle, Phone } from "lucide-react";
 
 const WhatsAppFloat = () => (
   <>
-    {/* Floating WhatsApp button — hidden on mobile via CSS media query (mobile uses sticky bottom bar) */}
     <a
       href="https://wa.me/918790134917?text=Hi%2C%20I%20want%20to%20discuss%20my%20project"
       target="_blank"
@@ -14,7 +13,6 @@ const WhatsAppFloat = () => (
       <MessageCircle className="h-7 w-7 text-whatsapp-foreground" />
     </a>
 
-    {/* Mobile sticky bottom bar — only shown on mobile */}
     <div
       className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-background border-t border-border px-4 py-2 flex gap-2"
       style={{ paddingBottom: "max(0.5rem, env(safe-area-inset-bottom))" }}

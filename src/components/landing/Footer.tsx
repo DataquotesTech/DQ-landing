@@ -1,7 +1,7 @@
 export default function Footer() {
   return (
     <footer className="border-t border-border bg-surface">
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 py-12 md:py-16">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 py-12 md:py-6">
         {/* Main grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mb-10 md:mb-12">
           {/* Brand */}
@@ -18,13 +18,18 @@ export default function Footer() {
           <div>
             <p className="font-sans font-semibold text-sm text-foreground mb-4">Verticals</p>
             <div className="space-y-2.5">
-              {["Digital Marketing", "Edutech", "IT Services", "K12 (juniors)"].map((v) => (
+              {[
+                { label: "Digital Marketing", href: "https://digital.dataquotes.net" },
+                { label: "Edutech", href: "https://edutech.dataquotes.net" },
+                { label: "TechGlobal", href: "https://it.dataquotes.net" },
+                { label: "K12 (juniors)", href: "https://k12.dataquotes.net" },
+              ].map((v) => (
                 <a
-                  key={v}
-                  href="#verticals"
+                  key={v.label}
+                  href={v.href}
                   className="block font-sans text-sm text-muted-foreground hover:text-primary transition-colors"
                 >
-                  {v}
+                  {v.label}
                 </a>
               ))}
             </div>

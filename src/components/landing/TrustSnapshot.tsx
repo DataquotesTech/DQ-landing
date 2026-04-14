@@ -29,7 +29,7 @@ export default function TrustSnapshot() {
   const sectionRef = useScrollAnimation();
 
   return (
-    <section className="bg-surface py-16 md:py-[100px]">
+    <section className="bg-surface py-8 md:py-[20px]">
       <div className="section-animate max-w-[1400px] mx-auto px-4 sm:px-6" ref={sectionRef}>
         {/* Stats grid */}
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 divide-y sm:divide-y-0 divide-border sm:divide-x sm:divide-border rounded-2xl glass-card overflow-hidden">

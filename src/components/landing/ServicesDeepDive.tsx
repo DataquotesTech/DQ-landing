@@ -24,20 +24,20 @@ const tabs = [
     phases: ["Assess", "Train", "Build", "Prepare", "Place"],
     stats: [
       { value: "95%", label: "Placement Rate" },
-      { value: "10K+", label: "Students Trained" },
-      { value: "120+", label: "Hiring Partners" },
+      { value: "1K+", label: "Students Trained" },
+      { value: "10+", label: "Hiring Partners" },
     ],
   },
   {
-    name: "IT Services",
+    name: "TechGlobal (IT Services)",
     color: "#818cf8",
     glow: "rgba(129,140,248,0.12)",
     offerings: ["Web Development", "Mobile Apps", "System Integration", "Cloud Migration", "Tech Audits", "DevOps Setup"],
     deliverables: ["Technical architecture document", "MVP or prototype", "Full production build", "QA & testing report", "Deployment & documentation"],
     phases: ["Discovery", "Architecture", "Development", "Testing", "Deployment"],
     stats: [
-      { value: "200+", label: "Projects Delivered" },
-      { value: "48hrs", label: "Avg. Kickoff" },
+      { value: "10+", label: "Projects Delivered" },
+      { value: "72hrs", label: "Avg. Kickoff" },
       { value: "99.9%", label: "Uptime SLA" },
     ],
   },
@@ -49,9 +49,9 @@ const tabs = [
     deliverables: ["Curriculum mapping to school board", "Student progress dashboard", "End-of-term showcase project", "Teacher certification", "Parent progress reports"],
     phases: ["Curriculum Map", "Onboard", "Teach", "Showcase", "Certify"],
     stats: [
-      { value: "50+", label: "Schools" },
-      { value: "5K+", label: "Kids Trained" },
-      { value: "12+", label: "Curricula" },
+      { value: "5+", label: "Schools" },
+      { value: "1K+", label: "Kids Trained" },
+      { value: "5+", label: "Curricula" },
     ],
   },
 ];

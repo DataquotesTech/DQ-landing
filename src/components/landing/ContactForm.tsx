@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useToast } from "@/hooks/use-toast";
 
-const verticalOptions = ["Digital", "EduTech", "IT Services", "K12 (juniors)"];
+const verticalOptions = ["Digital", "EduTech", "TechGlobal (IT Services)", "K12 (juniors)"];
 
 const GOOGLE_FORM_ACTION_URL = import.meta.env.VITE_GOOGLE_FORM_ACTION_URL?.trim() || "";
 const GOOGLE_FORM_VERTICAL_FALLBACK = import.meta.env.VITE_GOOGLE_FORM_VERTICAL_FALLBACK?.trim() || "IT";
@@ -21,7 +21,7 @@ const normalizeVerticalValue = (value: string) => {
   const normalized = value.trim().toLowerCase();
 
   if (!normalized || normalized === "general" || normalized === "business") return "IT";
-  if (normalized === "techglobal" || normalized === "it" || normalized === "it services") return "IT";
+  if (normalized === "techglobal" || normalized === "it" || normalized === "techglobal (it services)") return "IT";
   if (normalized === "k12" || normalized === "k12 (juniors)" || normalized === "juniors") return "juniors";
   if (normalized === "edutech") return "edutech";
   if (normalized === "digital marketing" || normalized === "digital marketing") return "digital marketing";
