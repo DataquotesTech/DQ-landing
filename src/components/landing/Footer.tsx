@@ -73,17 +73,20 @@ export default function Footer() {
           <p className="font-sans text-xs text-muted-foreground text-center sm:text-left">
             © {new Date().getFullYear()} DataQuotes. All rights reserved.
           </p>
-          <div className="flex gap-5 sm:gap-6">
-            {["Privacy Policy", "Terms of Use"].map((link) => (
-              <a
-                key={link}
-                href="#"
-                className="font-sans text-xs text-muted-foreground hover:text-primary transition-colors"
-              >
-                {link}
-              </a>
-            ))}
-          </div>
+            <div className="flex gap-5 sm:gap-6">
+            <a
+              href="/privacy"
+              className="font-sans text-xs text-muted-foreground hover:text-primary transition-colors"
+            >
+              Privacy Policy
+            </a>
+            <a
+              href="/terms"
+              className="font-sans text-xs text-muted-foreground hover:text-primary transition-colors"
+            >
+              Terms of Use
+            </a>
+            </div>
         </div>
       </div>
     </footer>
