@@ -181,7 +181,7 @@ export default function ContactForm() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground/60 mb-1 block">
-                Email Address *
+                Email Address 
               </label>
               <input
                 type="email"
@@ -247,16 +247,7 @@ export default function ContactForm() {
               className="flex-1 font-sans text-sm font-semibold bg-primary text-primary-foreground px-6 py-3 rounded-lg hover:opacity-90 transition-opacity disabled:opacity-40"
             >
               {isSubmitting ? "Submitting..." : "Send Details"}
-            </button>
-            <a
-              href={GOOGLE_FORM_PUBLIC_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex-1 font-sans text-sm font-semibold border rounded-lg px-6 py-3 text-center text-muted-foreground hover:text-foreground hover:bg-white/5 transition-all"
-              style={{ borderColor: "hsl(var(--border))" }}
-            >
-              Open Google Form
-            </a>
+            </button>            
           </div>
           {submitError && <p className="font-sans text-xs text-red-400">{submitError}</p>}
         </form>
