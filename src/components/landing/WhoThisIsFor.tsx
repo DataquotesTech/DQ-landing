@@ -28,6 +28,21 @@ export default function WhoThisIsFor() {
             </span>
           ))}
         </div>
+
+        {/* vision and mission ki code chei sample code */}
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8 stagger-child">
+          <div className="p-6 rounded-lg border border-border bg-muted/50">
+            <h3 className="text-xl font-semibold text-foreground mb-3">Our Vision</h3>
+            <p className="text-muted-foreground">
+              To become a trusted ecosystem that bridges education, technology, and industry—empowering students, professionals, and businesses to grow through practical skills, digital transformation, and innovation.
+            </p>
+          </div>
+          <div className="p-6 rounded-lg border border-border bg-muted/50">
+            <h3 className="text-xl font-semibold text-foreground mb-3">Our Mission</h3>
+            <p className="text-muted-foreground">Deliver exceptional value by combining technology, creativity, and human-centered design.</p>
+          </div>
+        </div>
+
       </div>
     </section>
   );
